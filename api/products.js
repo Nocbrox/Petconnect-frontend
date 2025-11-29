@@ -1,4 +1,4 @@
-const API_BASE = "https://petconnect-backend-production.up.railway.app/api";
+const API_BASE = "https://petconnect-backend-production.up.railway.app";
 
 // Productos destacados
 export const fetchDestacados = async () => {
@@ -7,16 +7,22 @@ export const fetchDestacados = async () => {
   return response.json();
 };
 
-// Catálogo
+// Catálogo completo
 export const fetchCatalogo = async () => {
   const response = await fetch(`${API_BASE}/productos_catalogo.php`);
   if (!response.ok) throw new Error("Failed to fetch catalogo");
   return response.json();
 };
 
-// Producto por ID
+// Obtener producto por ID
 export const fetchProducto = async (id) => {
   const response = await fetch(`${API_BASE}/getProductos.php?id=${id}`);
   if (!response.ok) throw new Error("Failed to fetch producto");
   return response.json();
+};
+
+// Carrito temporal
+export const agregarAlCarritoAPI = async (id, cantidad) => {
+  console.warn("Carrito no implementado. ID:", id, "Cantidad:", cantidad);
+  return { success: false };
 };
