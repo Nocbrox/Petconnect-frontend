@@ -14,11 +14,17 @@ export const fetchCatalogo = async () => {
   return response.json();
 };
 
-// Obtener un producto por ID
+// Obtener producto por ID
 export const fetchProducto = async (id) => {
   const response = await fetch(`${API_BASE}/getProductos.php?id=${id}`);
   if (!response.ok) throw new Error("Failed to fetch producto");
   return response.json();
+};
+
+// Carrito temporal — para evitar errores en Home.js y Catalogo.js
+export const agregarAlCarritoAPI = async (id, cantidad) => {
+  console.warn("Carrito no implementado. ID:", id, "Cantidad:", cantidad);
+  return { success: false };
 };
 
 
