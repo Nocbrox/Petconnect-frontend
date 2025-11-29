@@ -7,27 +7,23 @@ export const fetchDestacados = async () => {
   return response.json();
 };
 
-// Catálogo
+// Catálogo completo
 export const fetchCatalogo = async () => {
   const response = await fetch(`${API_BASE}/productos_catalogo.php`);
   if (!response.ok) throw new Error("Failed to fetch catalogo");
   return response.json();
 };
 
-// Producto por ID
+// Obtener un producto por ID
 export const fetchProducto = async (id) => {
   const response = await fetch(`${API_BASE}/getProductos.php?id=${id}`);
   if (!response.ok) throw new Error("Failed to fetch producto");
   return response.json();
 };
 
-// Carrito (⚠ este archivo NO existe en el backend)
-export const agregarAlCarritoAPI = async (id, quantity) => {
-  const response = await fetch(`${API_BASE}/agregarAlCarrito.php`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id, quantity }),
-  });
-  if (!response.ok) throw new Error("Failed to add to cart");
-  return response.json();
+// ❌ Carrito — No existe en backend, así que lo desactivamos temporalmente
+export const agregarAlCarritoAPI = async () => {
+  alert("⚠ El carrito no está implementado en el backend.");
+  return { success: false };
 };
+
