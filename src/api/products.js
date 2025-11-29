@@ -1,4 +1,4 @@
-const API_BASE = "https://petconnect-backend-production.up.railway.app";
+const API_BASE = "https://petconnect-backend-production.up.railway.app/api";
 
 // Productos destacados
 export const fetchDestacados = async () => {
@@ -21,9 +21,4 @@ export const fetchProducto = async (id) => {
   return response.json();
 };
 
-// ❌ Carrito — No existe en backend, así que lo desactivamos temporalmente
-export const agregarAlCarritoAPI = async () => {
-  alert("⚠ El carrito no está implementado en el backend.");
-  return { success: false };
-};
 
